@@ -11,7 +11,7 @@ const port = process.env.PORT;
 
 
 mongoose
-  .connect(process.env.CDB, { useNewUrlParser: true })
+  .connect('mongodb+srv://paaai:5iPc5VNPGfXxwxF6@cluster0.xfch9m1.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true })
   .then(() => console.log(`Database connected successfully`))
   .catch((err) => console.log(err));
 
