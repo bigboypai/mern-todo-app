@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Todo = require('../models/todo');
-router.get('api/todos', (req, res, next) => {
+router.get('https://mern-todo-app.azurewebsites.net/api/todos', (req, res, next) => {
   // This will return all the data, exposing only the id and action field to the client
   Todo.find({}, 'action')
     .then((data) => res.json(data))
     .catch(next);
 });
-router.post('api/todos', (req, res, next) => {
+router.post('https://mern-todo-app.azurewebsites.net/api/todos', (req, res, next) => {
   if (req.body.action) {
     Todo.create(req.body)
       .then((data) => res.json(data))
@@ -18,7 +18,7 @@ router.post('api/todos', (req, res, next) => {
     });
   }
 });
-router.delete('api/todos/:id', (req, res, next) => {
+router.delete('https://mern-todo-app.azurewebsites.net/api/todos/:id', (req, res, next) => {
   Todo.findOneAndDelete({ _id: req.params.id })
     .then((data) => res.json(data))
     .catch(next);
